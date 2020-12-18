@@ -10,8 +10,11 @@ dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-app.use("/posts", postRoutes);
 
+app.use("/posts", postRoutes);
+app.get("/", (req, res) => {
+	res.send("Memories API");
+});
 // const CONNECTION_URL =
 // 	"mongodb+srv://memories:memories123@cluster0.lhuto.mongodb.net/<dbname>?retryWrites=true&w=majority";
 
